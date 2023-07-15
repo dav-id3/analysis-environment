@@ -1,0 +1,24 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+black = "*"
+flake8 = "*"
+pyproject-flake8 = "*"
+mypy = "*"
+isort = "*"
+pydantic = "*"
+pandas = "*"
+scipy = "*"
+numpy = "*"
+seaborn = "*"
+scikit-learn = "*"
+
+[dev-packages]
+pylint = "*"
+
+[requires]
+python_version = "3.11"
+python_full_version = "3.11.0"
