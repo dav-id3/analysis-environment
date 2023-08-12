@@ -15,6 +15,9 @@ scipy = "*"
 numpy = "*"
 seaborn = "*"
 scikit-learn = "*"
+requests = "*"
+pymc = "*"
+selenium = "*"
 
 [dev-packages]
 pylint = "*"
