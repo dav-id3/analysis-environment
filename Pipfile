@@ -18,6 +18,8 @@ scikit-learn = "*"
 requests = "*"
 pymc = "*"
 selenium = "*"
+notebook = "*"
+graphviz = "*"
 
 [dev-packages]
 pylint = "*"
