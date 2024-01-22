@@ -1,0 +1,39 @@
+digraph {
+	subgraph cluster5 {
+		group_means [label="group_means
+~
+Normal" shape=ellipse]
+		label=5 labeljust=r labelloc=b style=rounded
+	}
+	epsilon [label="epsilon
+~
+HalfCauchy" shape=ellipse]
+	subgraph cluster100 {
+		obs_3 [label="obs_3
+~
+Normal" shape=ellipse style=filled]
+		obs_4 [label="obs_4
+~
+Normal" shape=ellipse style=filled]
+		obs_2 [label="obs_2
+~
+Normal" shape=ellipse style=filled]
+		obs_1 [label="obs_1
+~
+Normal" shape=ellipse style=filled]
+		obs_0 [label="obs_0
+~
+Normal" shape=ellipse style=filled]
+		label=100 labeljust=r labelloc=b style=rounded
+	}
+	group_means -> obs_0
+	epsilon -> obs_0
+	group_means -> obs_1
+	epsilon -> obs_1
+	group_means -> obs_2
+	epsilon -> obs_2
+	group_means -> obs_3
+	epsilon -> obs_3
+	group_means -> obs_4
+	epsilon -> obs_4
+}
