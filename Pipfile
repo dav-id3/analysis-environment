@@ -20,6 +20,8 @@ pymc = "*"
 selenium = "*"
 notebook = "*"
 graphviz = "*"
+xgboost = "*"
+lightgbm = "*"
 
 [dev-packages]
 pylint = "*"

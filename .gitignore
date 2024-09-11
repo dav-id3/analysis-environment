@@ -29,3 +29,4 @@ envfile/.*
 
 #Project Specific
 data/*
+src/selenium_202401/data*
