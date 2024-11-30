@@ -32,5 +32,6 @@ run:
 	@docker run --rm -it \
 		--env-file $(ENVFILE_FOLDER)/.env \
 		--name $(HOME_CONTAINER) \
-		$(HOME_CONTAINER) \
-		/bin/bash
+		-v ./src:/workspace/src \
+		-p 8888:8888 \
+		$(HOME_CONTAINER)

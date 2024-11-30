@@ -1,36 +1,19 @@
-FROM python:3.11-slim-buster
+FROM python:3.11-bookworm as requirements-stage
+WORKDIR /tmp
+
+RUN pip install poetry
+
+COPY ./pyproject.toml ./poetry.lock* /tmp/
+
+RUN poetry export -f requirements.txt --output requirements.txt --without-hashes
+
+FROM python:3.11-bookworm
 WORKDIR /workspace
 
-ENV PYTHONPATH /workspace:${PYTHONPATH}
-ENV LD_LIBRARY_PATH /workspace/instantclient:${LD_LIBRARY_PATH}
+COPY --from=requirements-stage /tmp/requirements.txt /workspace/requirements.txt
 
 RUN apt-get update && \
     apt-get upgrade -y && \ 
-    apt-get install -y --no-install-recommends \
-        build-essential \
-        python3-dev \
-        default-libmysqlclient-dev \
-        libaio1 \
-        libx11-dev \
-        && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
+    pip install --no-cache-dir --upgrade -r /workspace/requirements.txt
 
-COPY Pipfile Pipfile.lock ./
-
-RUN apt-get -y install gcc python3-dev libmariadb-dev && \
-    pip install --upgrade pip && \
-    pip install pipenv --no-cache-dir && \
-    export PIPENV_INSTALL_TIMEOUT=9999 && \
-    pipenv install --system --deploy --dev && \
-    pip uninstall -y pipenv virtusalenv-clone virtualenv
-
-RUN export DISPLAY=host.docker.internal:0.0
-
-COPY pyproject.toml ./
-
-COPY src/ src/
-
-COPY data/ data/
-
-CMD ["/bin/bash"]
+CMD ["jupyter", "notebook", "--ip=0.0.0.0", "--allow-root", "--IdentityProvider.token=''"]
