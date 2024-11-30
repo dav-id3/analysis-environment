@@ -17,3 +17,33 @@ ignore = "E203,W503,W504,F401"
 max-line-length = 150
 exclude = "tests/*"
 max-complexity = 10
+
+[tool.poetry]
+name = "analysis-environment"
+version = "0.1.0"
+description = ""
+authors = ["dav-id3 <dav.n.id3@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+black = "*"
+flake8 = "*"
+pyproject-flake8 = "*"
+mypy = "*"
+isort = "*"
+numpy = "^2.1.3"
+pandas = "^2.2.3"
+scipy = "^1.14.1"
+scikit-learn = "^1.5.2"
+notebook = "^7.2.2"
+optuna = "^4.1.0"
+bayesian-optimization = "^2.0.0"
+matplotlib = "^3.9.2"
+seaborn = "^0.13.2"
+seaborn-analyzer = "^0.3.6"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
