@@ -26,13 +26,12 @@ authors = ["dav-id3 <dav.n.id3@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = ">=3.11,<3.13"
 black = "*"
 flake8 = "*"
 pyproject-flake8 = "*"
 mypy = "*"
 isort = "*"
-numpy = "^2.1.3"
 pandas = "^2.2.3"
 scipy = "^1.14.1"
 scikit-learn = "^1.5.2"
@@ -42,7 +41,11 @@ bayesian-optimization = "^2.0.0"
 matplotlib = "^3.9.2"
 seaborn = "^0.13.2"
 seaborn-analyzer = "^0.3.6"
-
+statsmodels = "^0.14.4"
+numpy = "^1.26.4"
+prophet = "^1.1.6"
+sktime = "^0.34.0"
+pmdarima = "^2.0.4"
 
 [build-system]
 requires = ["poetry-core"]
